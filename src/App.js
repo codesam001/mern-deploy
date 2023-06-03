@@ -8,7 +8,11 @@ import Register from "./pages/register/Register";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
+if (process.env.NODE_ENV === 'production') {
+  disableReactDevTools();
+}
 
 function App() {
   const { user } = useContext(Context);
@@ -33,3 +37,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
